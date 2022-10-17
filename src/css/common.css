@@ -16,3 +16,33 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.first-button {
+  padding: 10px 20px;
+  background-color: #fafafa;
+  border: thick double #3c4142;
+  text-transform: uppercase;
+  margin-right: 10px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.second-button {
+  padding: 10px 20px;
+  background-color: #fafafa;
+  border: thick double #3c4142;
+  text-transform: uppercase;
+  margin-right: 10px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
