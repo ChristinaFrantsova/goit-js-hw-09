@@ -1,45 +1,46 @@
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-
-const buttonStart = document.querySelector('button[data-start]');
-const buttonStop = document.querySelector('button[data-stop]');
-const body = document.querySelector('body');
+const refs = {
+  buttonStart: document.querySelector('.first-button'),
+  buttonStop: document.querySelector('.second-button'),
+  body: document.querySelector('body'),
+};
 
 // Спосіб № 1
-buttonStart.addEventListener('click', onStartButtonColorChange);
-buttonStop.addEventListener('click', onStopButtonColorChange);
+refs.buttonStart.addEventListener('click', onStartButtonColorChange);
+refs.buttonStop.addEventListener('click', onStopButtonColorChange);
 let timer = null;
-buttonStop.disabled = true;
+// buttonStop.disabled = true;
 
 function colorChanger() {
-  body.style.backgroundColor = getRandomHexColor();
+  refs.body.style.backgroundColor = getRandomHexColor();
 }
 
 function onStartButtonColorChange(event) {
   timer = setInterval(colorChanger, 1000);
-  buttonStart.disabled = true;
-  buttonStop.disabled = false;
+  refs.buttonStart.disabled = true;
+  refs.buttonStop.disabled = false;
 }
 
 function onStopButtonColorChange(event) {
   clearInterval(timer);
-  buttonStart.disabled = false;
-  buttonStop.disabled = true;
+  refs.buttonStart.disabled = false;
+  refs.buttonStop.disabled = true;
 }
 
 // Спосіб №2
 
-// buttonStart.addEventListener('click', () => {
-//   timeBar = setInterval(() => {
-//     document.body.style.backgroundColor = getRandomHexColor();
-//     buttonStart.disabled = true;
-//     buttonStop.disabled = false;
+// refs.buttonStart.addEventListener('click', () => {
+//   timer = setInterval(() => {
+//     refs.body.style.backgroundColor = getRandomHexColor();
+//     refs.buttonStart.disabled = true;
+//     refs.buttonStop.disabled = false;
 //   }, 1000);
 // });
 
-// buttonStop.addEventListener('click', () => {
-//   clearInterval(timeBar);
-//   buttonStart.disabled = false;
-//   buttonStop.disabled = true;
+// refs.buttonStop.addEventListener('click', () => {
+//   clearInterval(timer);
+//   refs.buttonStart.disabled = false;
+//   refs.buttonStop.disabled = true;
 // });
