@@ -13,6 +13,8 @@ const refs = {
 
 refs.startBtn.addEventListener('click', onStartTimer);
 
+refs.startBtn.disabled = true;
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -33,10 +35,9 @@ flatpickr(refs.inputDate, options);
 
 function onStartTimer() {
   let timer = setInterval(() => {
-    refs.startBtn.disabled = true;
-
     let countdown = new Date(refs.inputDate.value) - new Date();
     if (countdown >= 0) {
+      refs.startBtn.disabled = true;
       let timeConverter = convertMs(countdown);
       refs.days.textContent = addLeadingZero(timeConverter.days);
       refs.hours.textContent = addLeadingZero(timeConverter.hours);
